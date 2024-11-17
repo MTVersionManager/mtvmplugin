@@ -9,5 +9,5 @@ type Plugin interface {
 	// GetLatestVersion returns the version number of the latest version
 	GetLatestVersion() (string, error)
 	// Progress returns a channel that you sent a float of the progress between 0 and 1, it's kind of like an initialization function
-	Progress() *chan float64
+	Progress() chan float64
 }
