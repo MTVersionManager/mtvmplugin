@@ -1,4 +1,4 @@
-package plugin
+package mtvmplugin
 
 // Plugin is the plugin's functions
 type Plugin interface {
