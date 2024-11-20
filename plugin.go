@@ -8,4 +8,6 @@ type Plugin interface {
 	Install(installDir string) error
 	// GetLatestVersion returns the version number of the latest version
 	GetLatestVersion() (string, error)
+	// Sort returns a sorted slice of versions sorted in ascending order (oldest first) and an error.
+	Sort(versions []string) ([]string, error)
 }
