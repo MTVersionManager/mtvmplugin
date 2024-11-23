@@ -10,4 +10,7 @@ type Plugin interface {
 	GetLatestVersion() (string, error)
 	// Sort returns a sorted slice of versions sorted in ascending order (oldest first) and an error.
 	Sort(versions []string) ([]string, error)
+	// Use sets the current version. A path directory is provided for you to symlink or copy the binaries into (it is called path directory because it should be part of the system's path variable)
+	// An installDir is also provided which is where the version is installed.
+	Use(installDir string, pathDir string) error
 }
