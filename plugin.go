@@ -16,4 +16,6 @@ type Plugin interface {
 	// GetCurrentVersion gets the current set version and returns an empty string if a version is not set. An installDir is provided which is where all the versions of the plugins are installed.
 	// For example go 1.23.3 would be installed in installDir/1.23.3 A pathDir is also provided so you can evaluate the symlinks of the binaries in there to find the current version
 	GetCurrentVersion(installDir string, pathDir string) (string, error)
+	// Remove removes a version, an installDir is provided which is where that version is installed. inUse is also provided which is if the version that is being removed is the one in use. If so, you should remove the binary from the pathDir which is also provided
+	Remove(installDir string, pathDir string, inUse bool) error
 }
