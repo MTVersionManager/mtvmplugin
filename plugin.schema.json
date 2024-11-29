@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/MTVersionManager/mtvmplugin/refs/heads/main/plugin/schema.json",
+  "title": "Plugin",
+  "description": "MTVM plugin metadata",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of your plugin",
+      "type": "string",
+      "exclusiveMinimum": 0
+    },
+    "version": {
+      "description": "Your plugin's latest version number (must be a semver compliant version number)",
+      "type": "string",
+      "exclusiveMinimum": 0
+    },
+    "downloads": {
+      "description": "The links for downloads of your plugin on different OS's and CPU architectures",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "os": {
+            "description": "The OS of the build, must be a valid GOOS value",
+            "type": "string",
+            "exclusiveMinimum": 0
+          },
+          "arch": {
+            "description": "The CPU architecture of the build, must be a valid GOARCH value",
+            "type": "string",
+            "exclusiveMinimum": 0
+          },
+          "checksum": {
+            "description": "The SHA256 checksum of the build (optional)",
+            "type": "string"
+          },
+          "url": {
+            "description": "The download link of the build",
+            "type": "string",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": ["os", "arch", "url"],
+        "minLength": 1
+      }
+    }
+  },
+  "required": ["name", "version"]
+}
