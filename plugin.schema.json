@@ -15,36 +15,33 @@
       "type": "string",
       "exclusiveMinimum": 0
     },
-    "downloads": {
-      "description": "The links for downloads of your plugin on different OS's and CPU architectures",
+    "osCompat": {
+      "description": "What operating systems the plugin is compatible with",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "os": {
-            "description": "The OS of the build, must be a valid GOOS value",
-            "type": "string",
-            "exclusiveMinimum": 0
-          },
-          "arch": {
-            "description": "The CPU architecture of the build, must be a valid GOARCH value",
-            "type": "string",
-            "exclusiveMinimum": 0
-          },
-          "checksum": {
-            "description": "The SHA256 checksum of the build (optional)",
-            "type": "string"
-          },
-          "url": {
-            "description": "The download link of the build",
-            "type": "string",
-            "exclusiveMinimum": 0
-          }
+        "type": "string"
+      }
+    },
+    "archCompat": {
+      "description": "What CPU architectures the plugin is compatible with",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "download": {
+      "description": "The link for the download of your plugin",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
         },
-        "required": ["os", "arch", "url"],
-        "minLength": 1
+        "checksum": {
+          "description": "SHA256 checksum of the download file",
+          "type": "string"
+        }
       }
     }
   },
-  "required": ["name", "version"]
+  "required": ["name", "version", "download", "osCompat"]
 }
